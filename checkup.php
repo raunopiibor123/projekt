@@ -16,10 +16,6 @@
 		header("Location: index.php");
 		exit();
 	}
-	if(isset($_POST["paying"])){
-		header("Location: checkup.php");
-		exit();
-	}
 ?>
 <!DOCTYPE html>
 <html lang="et">
@@ -99,36 +95,11 @@ div.desc {
 	<h1 style="text-align: center; color: white;" >Meie projekt™</h1>
 	<div id="inner-left">
 	<form action="addProducts.php">
-	<h2>Kategooriad</h2>
-	<ul class="list-group">
-		<li class="list-group-item">Elektroonika <span class="badge">12</span></li>
-		<li class="list-group-item">Koduloomad <span class="badge">6</span></li>
-		<li class="list-group-item">Kodutehnika <span class="badge">80</span></li>
-	</ul>
-	<br>
-	<input name ="logout" type="submit" class="btn btn-success" value="Lisa toode!">
+
 	</form>
 	</div>
 	<div id="inner">
-	<h2>Uusimad lisatud tooted</h2>
-		<div class="gallery">
-			<a target="_blank" href="pildid/meat.jpeg">
-				<img src="pildid/meat.jpeg" alt="Meat" width="300" height="200">
-			</a>
-			<div class="desc">Unikorn meat, 5€/kg</div>
-		</div>
-		<div class="gallery">
-			<a target="_blank" href="pildid/canned-air.jpeg">
-				<img src="pildid/canned-air.jpeg" alt="canned-air" width="300" height="200">
-			</a>
-			<div class="desc">Värske õhk! 10€/l</div>
-		</div>
-		<div class="gallery">
-			<a target="_blank" href="pildid/coke-can.jpeg">
-				<img src="pildid/coke-can.jpeg" alt="coke-can" width="300" height="200">
-			</a>
-			<div class="desc">Tühi coca-cola purk, 50€/tk</div>
-		</div>
+	
 	</div>
 	
 	<div id="inner-right">
@@ -137,7 +108,6 @@ div.desc {
 	<p>Kasutaja loodi:<br> <?php echo date_format($dateCreated, "Y-m-d");?></p>
 	
 	<input name ="logout" type="submit" class="btn btn-primary" value="Logi välja">
-	<input style="margin-left: 10px;" name ="paying" type="submit" class="btn btn-success" value="Siirdu maksma!">
 	</form>
 	</div>
 </body>
