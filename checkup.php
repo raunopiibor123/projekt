@@ -16,6 +16,10 @@
 		header("Location: index.php");
 		exit();
 	}
+		if(isset($_POST["back"])){
+		header("Location: main.php");
+		exit();
+	}
 ?>
 <!DOCTYPE html>
 <html lang="et">
@@ -108,6 +112,7 @@ div.desc {
 	<p>Kasutaja loodi:<br> <?php echo date_format($dateCreated, "Y-m-d");?></p>
 	
 	<input name ="logout" type="submit" class="btn btn-primary" value="Logi välja">
+	<input style="margin-left: 70px;" name ="back" type="submit" class="btn btn-danger" value="Tagasi!">
 	</form>
 	</div>
 </body>
