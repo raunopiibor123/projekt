@@ -23,7 +23,7 @@ Funktsionaalsus:
 
  
 Andmebaaside baas
-![baas](pildid/)
+![baas](pildid/Capture.PNG)
 
 Kokkuvõte
 	
