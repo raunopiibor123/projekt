@@ -3,6 +3,8 @@ Kuuluta&kuluta
 Rühma liikmed: Simon Berner, Taavi Meinberg, Edgar Johannes Trumm, Rauno Piibor
  
 Login page.
+ ![login](pildid/asd.png)
+ 
  
 Main page.
 Meie rühmatöö eesmärk on luua veeebileht, et inimestel oleks veebileht kus enda kuulutusi lisada. Selline lähenemine propageerib kasutatud asjade kasutamist, mitte uue ostmist. 
