@@ -7,6 +7,7 @@ Login page.
  
  
 Main page.
+![main](pildid/asd.jpg)
 Meie rühmatöö eesmärk on luua veeebileht, et inimestel oleks veebileht kus enda kuulutusi lisada. Selline lähenemine propageerib kasutatud asjade kasutamist, mitte uue ostmist. 
 
 Sihtrühmaks on kuulutuslehte vajavad inimesed igas vanuses. Meie leht on hästi organiseeritud ning on tehtud kasutajasõbralikuks. Samuti ei piira me kedagi vanusepiiranguga.
