@@ -2,6 +2,7 @@
 
 	//Et pääseks ligi sessioonile
 	require("PHP/functions.php");
+	require("showProducts.php");
 	
 	//Kui pole sisseloginud, liigume login lehele
 	//Kui pole sisseloginud, liigume login lehele
@@ -17,18 +18,12 @@
 		exit();
 	}
 	
-	if(isset($_POST["buying"])){
-
-		header("Location: https://en.wikipedia.org/wiki/Money");
-		exit();
-	}
-	
 ?>
 <!DOCTYPE html>
 <html lang="et">
 <head>
 	<meta charset="utf-8">
-	<title>Avaleht</title>
+	<title>Sisselogimine meie uude projekti™</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<style>
 	
@@ -99,7 +94,7 @@ div.desc {
 	</style>
 </head>
 <body id="grad" style="align: center;">
-	<h1 style="text-align: center; color: white;" >Kuuluta & Kuluta™</h1>
+	<h1 style="text-align: center; color: white;" >Meie projekt™</h1>
 	<div id="inner-left">
 	<form action="addProducts.php">
 	<h2>Kategooriad</h2>
@@ -109,12 +104,12 @@ div.desc {
 		<li class="list-group-item"><a href="kodutehnika.php">Kodutehnika <span class="badge">80</span></a></li>
 	</ul>
 	<br>
-	<input name ="logout" type="submit" class="btn btn-success" value="Lisa kuulutus!">
+	<input name ="logout" type="submit" class="btn btn-success" value="Lisa toode!">
 	</form>
 	</div>
 	<div id="inner">
-	<h2>Uusimad lisatud tooted (10 päeva)</h2>
-	<?php echo showLatestProducts(); ?>
+	<h2>Elektroonika tooted</h2>
+	<?php echo showProducts("Elektroonika"); ?>
 
 	</div>
 	
@@ -124,7 +119,6 @@ div.desc {
 	<p>Kasutaja loodi:<br> <?php echo date_format($dateCreated, "Y-m-d");?></p>
 	
 	<input name ="logout" type="submit" class="btn btn-primary" value="Logi välja">
-	<!--<input name ="buying" type="submit" class="btn btn-success" value="OSTA!"> -->
 	</form>
 	</div>
 </body>

@@ -49,21 +49,38 @@ session_start();
 				$_SESSION["lastName"] = $lastNameFromDb;
 				$_SESSION["created"] = $createdDB;
 				echo $_SESSION["userID"];
-				echo"Pask on lahti 4";
+				
 				//Liigume pealehele
 				header("Location: main.php");
 				exit();
 			} else {
-				echo"Pask on lahti 1";
 				$notice = "Sisestasite vale salasõna!";
 			}
 			
 		} else {
-			echo"Pask on lahti 2";
-			$notice ="Sellist kasutajat {" . $email . "} ei ole!";
+			
+			echo "Sellist kasutajat {" . $email . "} ei ole!";
 		}
-		echo"Pask on lahti 3";
 		return $notice;
+	}
+	
+	function showLatestProducts(){
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUserName"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("SELECT picname, productname, description, quantity, price, category FROM products WHERE added >= current_timestamp - interval '10' day");
+		$stmt->bind_result($picName, $productName, $productDescription, $productQuantity, $productPrice, $productCategory);
+		$stmt->execute();
+		$result="";
+		
+		
+		while($stmt->fetch()){
+			$result .= '<div class="gallery">';
+				$result .= '<a target="_blank" href="pildid/'. $picName .'">';
+					$result .='<img src="pildid/'. $picName .'" alt="'. $picName .'">';
+				$result.='</a>';
+				$result.='<div class="desc">'. $productName.', '.$productDescription.', '.$productQuantity.', '.$productPrice.'€ </div>';
+			$result.='</div>';
+		}
+		return $result;
 	}
 	
 	function cleanInput($strToClean){

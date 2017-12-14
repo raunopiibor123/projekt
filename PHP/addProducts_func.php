@@ -3,7 +3,7 @@ require("../../../config.php");
 $database = "if17_veebprojekt";
 function createCategoryDropdown($array){
 	$result = "";
-	$result .= "<select class='form-control'>";
+	$result .= "<select name='productCategory' class='form-control'>";
     foreach ($array as $category) {
 		$result .='<option value="'.$category.'">'.$category.'</option>';
 	}
@@ -14,16 +14,14 @@ function createCategoryDropdown($array){
 function addProductToDatabase($userName, $picName, $productName, $description, $quantity, $price, $category){
 		
 	//Ühendus serveriga
-			
 	$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUserName"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 	//käsk serverlile
-	$stmt = $mysqli->prepare("INSERT INTO users (firstname, lastname, birthday, password, email ) VALUES (?, ?, ? ,? ,?)");
+	$stmt = $mysqli->prepare("INSERT INTO products (username, picname, productname, description, quantity, price, category ) VALUES (?, ?, ? ,? ,?, ?, ?)");
 	echo $mysqli->error;
 	//s - string
 	//i - int
 	//d - decimal
-	$stmt->bind_param("sssss", $signupFirstName, $signupFamilyName, $signupBirthDate, $signupPassword, $signupEmail);
-	//$stmt->execute();
+	$stmt->bind_param("ssssids", $userName, $picName, $productName, $description, $quantity, $price, $category);
 	if($stmt->execute()){
 		//echo "Õnnestus";
 	} else{

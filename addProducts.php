@@ -46,11 +46,6 @@
 				$uploadOk = 0;
 			}
 			
-			/*//Kas selline pilt on juba üles laetud
-			if (file_exists($target_file)) {
-				$notice .= "Kahjuks on selle nimega pilt juba olemas. ";
-				$uploadOk = 0;
-			}*/
 			//Piirame faili suuruse
 			if ($_FILES["fileToUpload"]["size"] > 1000000) {
 				$notice .= "Pilt on liiga suur! ";
@@ -77,9 +72,11 @@
 				$notice = $myPhoto->savePhoto($target_dir, $target_file);
 				//$myPhoto->saveOriginal($directory, $target_file);
 				$myPhoto->clearImages();
-				echo $target_file;
+				addProductToDatabase($_SESSION["userEmail"], $target_file, $_POST["productName"], $_POST["description"], $_POST["productQuantity"], $_POST["productPrice"], $_POST["productCategory"]);
 				unset($myPhoto);
 				
+				header("Location: main.php");
+				exit();
 			}//saab salvestada lõppeb		
 		
 		} else {
@@ -93,7 +90,7 @@
 <html lang="et">
 <head>
 	<meta charset="utf-8">
-	<title>Sisselogimine meie uude projekti™</title>
+	<title>Lisa toodet™</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<style>
 	
@@ -159,7 +156,7 @@ label {
 	</style>
 </head>
 <body id="grad" style="align: center;">
-	<h1 style="text-align: center; color: white;" >Meie projekt™</h1>
+	<h1 style="text-align: center; color: white;" >Kuuluta & Kuluta™</h1>
 	<div id="inner">
 	<h2>Lisa uus toode</h2>
 	<hr>
@@ -168,17 +165,17 @@ label {
 	<input class="form-control" name="productName" type="text" value="">
 	<br>
 	<label for="description">Toote Kirjeldus:</label>
-	<textarea class="form-control" rows="2" id="description"></textarea>
+	<textarea class="form-control" name ="description" rows="2" id="description"></textarea>
 	<br>
 	<label>Toote kogus: </label>
-	<input class="form-control" name="productName" type="number" value="" min="1">
+	<input class="form-control" name="productQuantity" type="number" value="" min="1">
 	
 	<br>
 	<label>Vali toote kategooria: </label>
 	<?php echo createCategoryDropdown($categories);?>
 	<br>
 	<label>Toote Hind (€): </label>
-	<input class="form-control" name="productName" type="number" value="" min="0">
+	<input class="form-control" name="productPrice" type="number" value="" min="0">
 	<br>
 	<label>Valige toodet kirjeldav pilt:</label>
 	<input type="file" name="fileToUpload" id="fileToUpload">
