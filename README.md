@@ -25,3 +25,5 @@ Andmebaaside baas
 Kokkuvõte
 	
 	Projekti jooksul õppimisime veebilehe koostamist ja sellega seonduvat. Saime uusi teadmisi veebilehe disainis ning kinnistasime õpitut luues ise täiesti oma veebilehe. Kindlasti arendasime ka meeskonnatööd. 
+
+Veebilehe aadress: http://greeny.cs.tlu.ee/~meintaav/projekt/projekt/index.php
